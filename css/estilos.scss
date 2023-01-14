@@ -1,0 +1,100 @@
+//      https://bluuweb.github.io/practicas/03-card/#card-2
+
+:root{
+    --dark_cyan: hsl(185, 75% , 39%);
+    --very-dark-blue: hsl(229, 23%, 23%);
+    --dark-gray-blue: hsl(227, 10%, 46%);
+    --dark-gray: hsl(0, 0%, 59%);
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62%;
+  //margin-top:300px;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body{
+  font-family: 'Kumbh Sans', sans-serif;
+  background-color: var(--dark_cyan);
+  //background-image: url('../images/bg-pattern-top.svg'); //le coloca la imagen de agua con esperas del fondo y respeta el color
+  //si fuese background solo, mostraria la imagen pero no el fondo
+  //reemplazo la linea anterior por
+  //se trabajan 3 imagenes de fondo
+  background-image: url('../images/bg-pattern-top.svg'), url('../images/bg-pattern-bottom.svg');  
+  background-repeat: no-repeat, no-repeat;
+  background-position: right 50vw bottom 50vh, left 50vw top 50vh; //me posiciona las dos esferas una arriba izq la otra inf der
+}
+
+h1{
+  color:blueviolet;
+}
+
+.flex{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.card{
+    background-color: azure;
+    width: 326px;
+    border-radius: 10px;
+    overflow: hidden; //ajusta la imagen agua al cuadro blanco (card)
+    box-shadow: 10px 10px 5px rgb(0,0,0, 0.5) ;  //crea borde con sombra
+
+    //esto se puede hacer cuando se trabaja con SASS de lo contrario debebn ser afuera de la clase
+    &-header{
+        width: 100%;
+        display: block; //desaparece espacio entre imagen y agua
+    }
+
+    &-body{
+      display: flex;
+      flex-direction: column;
+      // para que no quede todo estiado sino centrado (strech)
+      align-items: center;
+      
+      &-img{
+          border: 5px solid rgb(254, 254, 254);
+          border-radius: 50%;
+          margin-top: -45px; // pára subir la imagen con relacion a la imagen de agua
+          
+      }
+
+      &-title{
+           span{
+              color:var(--dark-gray);
+              font-weight:400;
+              margin-left: 0.8rem;
+              font-size: 1.8;
+           } 
+      }
+
+      &-text{
+        font-size: 15px;
+        color: var(--dark-gray);    
+        margin-top:0;
+      }
+    }
+
+    &-footer{
+      display: flex;
+      justify-content: space-evenly;
+      text-align: center;
+
+
+      &-social{
+        margin-top: 10px;
+        margin-bottom: 10px;
+        p{
+            letter-spacing: 1px;
+        }
+      }
+    }
+}
+
+
